@@ -60,6 +60,9 @@ export class ServicesComponent implements OnInit {
   }
 
   deleteActivity(activityID: string) {
+    this.activityInvService.deleteInvolvement(activityID).subscribe(() => {
+      this.loadInvolvements();
+    });
     this.activityService.deleteActivity(activityID).subscribe(() => {
       this.loadActivities();
     });
